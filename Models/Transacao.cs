@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using prova.Validation;
 
 #nullable disable
 
-// Criar atributo de validação que represente o Required mas traga a mensagem em portugês
 
 namespace prova.Models
 {
@@ -13,17 +13,17 @@ namespace prova.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Id do produto não pode ser vazio")]
         [Range(1, int.MaxValue, ErrorMessage = "Id de produto inválida")]
         public int ProdutoId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Valor de venda inválido")]
         [Range(0, 99999999.99, ErrorMessage = "Valor de venda inválido")]
         public decimal ValorVenda { get; set; }
 
         public DateTime? DataVenda { get; set; }
 
-        // Criar atributo de validação que represente o Enum!
+        [ValidEstadoCompra(ErrorMessage = "Estado da transação inválido")]
         public string EstadoCompra { get; set; }
         
         public virtual Produto Produto { get; set; }

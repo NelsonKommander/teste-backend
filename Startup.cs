@@ -31,6 +31,7 @@ namespace prova
             services.AddDbContext<BackendTestContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<BackendTestContext, BackendTestContext>();
             services.AddControllers();
+            services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
