@@ -19,7 +19,7 @@ namespace prova.Models
 
         [Required(ErrorMessage = "O nome do produto deve conter entre 1 e 45 caracteres")]
         [MinLength(1, ErrorMessage = "O nome do produto deve conter entre 1 e 45 caracteres")]
-        [MaxLength(1, ErrorMessage = "O nome do produto deve conter entre 1 e 45 caracteres")]
+        [MaxLength(45, ErrorMessage = "O nome do produto deve conter entre 1 e 45 caracteres")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Valor unitário inválido")]

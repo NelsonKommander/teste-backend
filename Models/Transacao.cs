@@ -24,7 +24,7 @@ namespace prova.Models
         public DateTime? DataVenda { get; set; }
 
         [ValidEstadoCompra(ErrorMessage = "Estado da transação inválido")]
-        public string EstadoCompra { get; set; }
+        public string Estado { get; set; }
         
         public virtual Produto Produto { get; set; }
     }

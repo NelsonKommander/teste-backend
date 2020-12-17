@@ -59,6 +59,8 @@ namespace prova.Data
 
                 entity.Property(e => e.ProdutoId).HasColumnName("produto_id");
 
+                entity.Property(e => e.Estado).HasColumnName("estado");
+
                 entity.Property(e => e.ValorVenda)
                     .HasPrecision(10, 2)
                     .HasColumnName("valor_venda");
