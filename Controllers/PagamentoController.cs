@@ -1,6 +1,4 @@
-using System.Threading.Tasks;
 using prova.Data;
-using prova.Models;
 using prova.Validation;
 using Microsoft.AspNetCore.Mvc;
 using prova.Dto;
@@ -17,7 +15,7 @@ namespace prova.Controllers
         
         [HttpPost]
         [Route("compras")]
-        public async Task<IActionResult> Post(
+        public IActionResult Post(
             [FromServices] BackendTestContext context,
             [FromBody] PagamentoDto model)
         {
