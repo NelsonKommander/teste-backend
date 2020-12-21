@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace prova.Validation
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class ValidDataExpiracaoAttribute : ValidationAttribute
+    public class DataExpiracaoAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

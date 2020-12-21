@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace prova.Validation
 {
-    public class ValidationResultModel
+    public class ValidationResult
     {
         public string Message { get; } 
 
         public List<ValidationError> Errors { get; }
 
-        public ValidationResultModel(ModelStateDictionary modelState)
+        public ValidationResult(ModelStateDictionary modelState)
         {
             // De acordo com a especificação do desafio os erros de
             // validação devem retornar código 412 com a mensagem

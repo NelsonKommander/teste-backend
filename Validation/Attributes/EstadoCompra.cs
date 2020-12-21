@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace prova.Validation
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class ValidEstadoCompraAttribute : ValidationAttribute
+    public class EstadoCompraAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

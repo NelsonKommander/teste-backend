@@ -7,7 +7,7 @@ namespace prova.Validation
     public class ValidationFailedResult : ObjectResult
     {
         public ValidationFailedResult(ModelStateDictionary modelState) 
-            : base(new ValidationResultModel(modelState))
+            : base(new ValidationResult(modelState))
         {
             // De acordo com a especificação do desafio os erros de
             // validação devem retornar código 412 com a mensagem

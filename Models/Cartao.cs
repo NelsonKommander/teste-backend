@@ -16,7 +16,7 @@ namespace prova.Models
         [CreditCard]
         public string Numero { get; set; }
 
-        [ValidDataExpiracao(ErrorMessage = "Data de expiração inválida")]
+        [DataExpiracao(ErrorMessage = "Data de expiração inválida")]
         public string Data_Expiracao { get; set; }
 
         [Required(ErrorMessage = "Bandeira inválida")]
