@@ -8,4 +8,5 @@
 
     - O tipo dos id's foi alterado de AUTO_INCREMENT para SERIAL
     - Todas as datas foram alteradas de DATETIME para TIMESTAMP
-    - Foi criado um tipo estadoCompra para o campo estado da tabela de transações (o enum não era reconhecido)
+    - O Entity Framework não mapeia o enum do estado do postgres direito e causou problemas. A restrição foi movida do banco para o backend
+    - Alterada a inserção das transações para não incluirem o id e deixar que a sequencia cuide disso

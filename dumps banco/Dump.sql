@@ -1,7 +1,9 @@
   -- Foram feitas algumas alterações ao dump dado para entrar em conformidade com o postgres
+
   -- id's foram alterados de AUTO_INCREMENT para serial
   -- DATETIME foram alterados para TIMESTAMP
-  -- Foi criado o tipo estadoCompra para substituir o enum inline da tabela de transações
+  -- O Entity Framework não mapeia o enum do estado do postgres direito e causou problemas. A restrição foi movida do banco para o backend
+  -- Alterada a inserção das transações para não incluirem o id e deixar que a sequencia cuide disso
 
   CREATE SCHEMA IF NOT EXISTS backend_test;
   SET search_path TO backend_test;
@@ -20,13 +22,6 @@
 	CONSTRAINT pk_id_produto PRIMARY KEY (id)
     );
 
-
-  -- -----------------------------------------------------
-  -- Adaptação do ENUM
-  -- -----------------------------------------------------
-
-  CREATE TYPE estadoCompra AS ENUM('APROVADO', 'REJEITADO');
-
   -- -----------------------------------------------------
   -- Tabela transacoes
   -- -----------------------------------------------------
@@ -35,7 +30,7 @@
     produto_id INT NOT NULL,
     valor_venda DECIMAL(10,2) NOT NULL,
     data_venda TIMESTAMP NULL,
-    estado estadoCompra NOT NULL,
+    estado VARCHAR(10) NOT NULL,
     CONSTRAINT pk_id_transacao PRIMARY KEY (id),
     CONSTRAINT fk_transacoes_produtos
       FOREIGN KEY (produto_id)
@@ -56,10 +51,10 @@ VALUES
 	('iPad Pro 128GB', 4200.00, 5, '2018-09-20 16:25:52', '2018-09-20 16:25:52', NULL),
 	( 'iMac Pro 27', 750000.00, 2, '2018-09-20 16:27:22', '2018-09-20 16:27:22', NULL);
 
-INSERT INTO transacoes (id, produto_id, valor_venda, data_venda, estado)
+INSERT INTO transacoes (produto_id, valor_venda, data_venda, estado)
 VALUES
-	(1, 1, 8450.00, '2018-09-20 16:31:01', 'APROVADO'),
-	(2, 3, 9230.00, '2018-09-20 16:32:26', 'APROVADO'),
-	(3, 10, 750000.00, '2018-09-20 16:32:47', 'REJEITADO'),
-	(4, 8, 3450.00, '2018-09-20 16:33:25', 'APROVADO'),
-	(5, 5, 4400.00, '2018-09-20 16:33:56', 'REJEITADO');
+	(1, 8450.00, '2018-09-20 16:31:01', 'APROVADO'),
+	(3, 9230.00, '2018-09-20 16:32:26', 'APROVADO'),
+	(10, 750000.00, '2018-09-20 16:32:47', 'REJEITADO'),
+	(8, 3450.00, '2018-09-20 16:33:25', 'APROVADO'),
+	(5, 4400.00, '2018-09-20 16:33:56', 'REJEITADO');

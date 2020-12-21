@@ -22,8 +22,6 @@ namespace prova.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasPostgresEnum("backend_test", "estadocompra", new[] { "APROVADO", "REJEITADO" })
-                .HasAnnotation("Relational:Collation", "Portuguese_Brazil.1252");
 
             modelBuilder.Entity<Produto>(entity =>
             {
