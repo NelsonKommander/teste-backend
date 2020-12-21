@@ -58,6 +58,11 @@ namespace prova.Controllers
                                                                     ValorVenda = entry.ValorVenda,
                                                                     DataVenda = entry.DataVenda
                                                                 }).FirstOrDefaultAsync();
+
+                if (produtoDetalhado == null) {
+                    return BadRequest("Ocorreu um erro desconhecido");
+                }
+
                 return Ok(produtoDetalhado);
             }
             catch
