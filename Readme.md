@@ -3,6 +3,8 @@
     com o banco de dados postgresql.
 
 ## Adaptações necessárias
+    Não consegui acessar o gateway indicado no desafio, no lugar dele enviei a requisição para a API feita no item 6.
+
     O dump inicial provido não foi reconhecido logo de cara pelo postgresql e algumas adaptações tiveram
     que ser feitas para corrigir os erros que surgiram.
 
